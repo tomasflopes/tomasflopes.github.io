@@ -59,7 +59,8 @@ export default function Footer() {
         align={{ base: "center", md: "center" }}
       >
         <Text>
-          © {new Date().toUTCString} Tomás Lopes. All rights reserved
+          © {new Date().toUTCString()} Tomás Lopes. All rights
+          reserved
         </Text>
         <Stack direction={"row"} spacing={6}>
           <SocialButton label={"Twitter"} href={"#"}>
