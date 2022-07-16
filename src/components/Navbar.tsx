@@ -30,7 +30,7 @@ const NavLink = ({ href, children }: NavbarProps) => (
       textDecoration: "none",
       bg: useColorModeValue("gray.200", "gray.700"),
     }}
-    href={"#"}
+    href={href}
   >
     {children}
   </Link>
@@ -52,15 +52,10 @@ export default function Nav() {
         alignItems={"center"}
         justifyContent={"space-between"}
       >
-        <IconButton
-          size={"md"}
-          icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-          aria-label={"Open Menu"}
-          display={{ md: "none" }}
-          onClick={isOpen ? onClose : onOpen}
-        />
         <HStack spacing={8} alignItems={"center"}>
-          <Heading>Tomás Lopes</Heading>
+          <Heading as="h1" size="lg" noOfLines={1}>
+            Tomás Lopes
+          </Heading>
           <HStack
             as={"nav"}
             spacing={4}
@@ -75,8 +70,13 @@ export default function Nav() {
         </HStack>
 
         <Flex alignItems={"center"}>
-          <Stack direction={"row"} spacing={7}>
+          <Stack direction={"row"} spacing={4}>
             <Menu>
+              <MenuList alignItems={"center"}>
+                {options.map((option) => (
+                  <NavLink href={option.url}>{option.name}</NavLink>
+                ))}
+              </MenuList>
               <MenuButton
                 as={Button}
                 rounded={"full"}
@@ -84,12 +84,14 @@ export default function Nav() {
                 cursor={"pointer"}
                 minW={0}
               ></MenuButton>
-              <MenuList alignItems={"center"}>
-                {options.map((option) => (
-                  <NavLink href={option.url}>{option.name}</NavLink>
-                ))}
-              </MenuList>
               <DarkModeSwitch />
+              <IconButton
+                size={"md"}
+                icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+                aria-label={"Open Menu"}
+                display={{ md: "none" }}
+                onClick={isOpen ? onClose : onOpen}
+              />
             </Menu>
           </Stack>
         </Flex>

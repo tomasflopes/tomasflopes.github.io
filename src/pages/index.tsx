@@ -12,9 +12,9 @@ const Home: NextPage = () => {
         <title>Tomás Lopes</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container height={"container.xl"} width={"100%"}>
+      <Container height="100vh" width={"100%"}>
         <Navbar />
-        <Container>
+        <Container width="100%" px={12}>
           <Text>
             I{"'"}m a software developer based in Porto, Portugal.
           </Text>

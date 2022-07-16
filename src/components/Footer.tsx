@@ -8,7 +8,7 @@ import {
   VisuallyHidden,
 } from "@chakra-ui/react";
 import { ReactNode } from "react";
-import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import Constants from "../styles/Constants";
 
 const SocialButton = ({
@@ -48,6 +48,8 @@ export default function Footer() {
     <Box
       bg={Constants.bgColor[useColorModeValue("light", "dark")]}
       color={Constants.color[useColorModeValue("light", "dark")]}
+      position="absolute"
+      bottom={4}
     >
       <Container
         as={Stack}
@@ -59,18 +61,29 @@ export default function Footer() {
         align={{ base: "center", md: "center" }}
       >
         <Text>
-          © {new Date().toUTCString()} Tomás Lopes. All rights
+          © {new Date().getUTCFullYear()} Tomás Lopes. All rights
           reserved
         </Text>
-        <Stack direction={"row"} spacing={6}>
-          <SocialButton label={"Twitter"} href={"#"}>
+        <Stack direction={"row"} spacing={4}>
+          <SocialButton
+            label={"GitHub"}
+            href={"http://www.github.com/tomas050302"}
+          >
+            <FaGithub />
+          </SocialButton>
+          <SocialButton
+            label={"LinkedIn"}
+            href={
+              "https://www.linkedin.com/in/tom%C3%A1s-lopes-021907172/"
+            }
+          >
+            <FaLinkedin />
+          </SocialButton>
+          <SocialButton
+            label={"Twitter"}
+            href={"https://twitter.com/tomaslopes_dev"}
+          >
             <FaTwitter />
-          </SocialButton>
-          <SocialButton label={"YouTube"} href={"#"}>
-            <FaYoutube />
-          </SocialButton>
-          <SocialButton label={"Instagram"} href={"#"}>
-            <FaInstagram />
           </SocialButton>
         </Stack>
       </Container>

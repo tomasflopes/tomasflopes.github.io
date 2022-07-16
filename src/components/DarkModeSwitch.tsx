@@ -31,12 +31,7 @@ export const DarkModeSwitch = () => {
   }
 
   return (
-    <Button
-      onClick={handleThemeChange}
-      position="fixed"
-      top="1rem"
-      right="1rem"
-    >
+    <Button onClick={handleThemeChange}>
       {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
     </Button>
   );
