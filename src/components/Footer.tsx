@@ -48,8 +48,6 @@ export default function Footer() {
     <Box
       bg={Constants.bgColor[useColorModeValue("light", "dark")]}
       color={Constants.color[useColorModeValue("light", "dark")]}
-      position="absolute"
-      bottom={4}
     >
       <Container
         as={Stack}

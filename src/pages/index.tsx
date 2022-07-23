@@ -15,7 +15,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
 const Home: NextPage = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
   const isDark = colorMode === "dark";
 
   return (
@@ -24,20 +24,21 @@ const Home: NextPage = () => {
         <title>Tomás Lopes</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container height="100vh" width={"100%"}>
+      <Container minHeight="93vh" width={"100%"}>
         <Navbar />
         <Grid
           templateAreas={{
-            md: `'text image'`,
+            lg: `'text image'`,
             base: `'image' 
                                                       'text'`,
           }}
           w="80%"
           h="100%"
-          pb="24"
-          px={12}
+          px={{ md: 12 }}
+          pb={{ md: 24 }}
+          my="auto"
           alignItems="center"
-          justifyContent={"center"}
+          justifyContent="center"
         >
           <GridItem area={"image"}>
             <Image
@@ -45,16 +46,18 @@ const Home: NextPage = () => {
               alt="Tomás Lopes"
               borderRadius="full"
               h="auto"
-              w={{ base: "100%", md: "auto" }}
+              w={{ base: "60%", lg: "auto" }}
+              mx="auto"
+              my={4}
             />
           </GridItem>
           <GridItem area={"text"}>
             <Heading
-              lineHeight="tall"
-              size={"3xl"}
+              lineHeight={{ base: "taller", lg: "tall" }}
+              size={{ base: "2xl", md: "3xl" }}
               mr={4}
               zIndex={1}
-              textAlign={{ md: "right", base: "center" }}
+              textAlign={{ lg: "right", base: "center" }}
             >
               <Highlight
                 query={["fullstack", "Porto"]}
@@ -62,6 +65,7 @@ const Home: NextPage = () => {
                   px: "2",
                   py: "1",
                   rounded: "full",
+                  boxShadow: "lg",
                   bg: isDark ? "teal.100" : "teal.400",
                   color: isDark ? "black" : "white",
                 }}
@@ -71,8 +75,8 @@ const Home: NextPage = () => {
             </Heading>
           </GridItem>
         </Grid>
-        <Footer />
       </Container>
+      <Footer />
     </>
   );
 };

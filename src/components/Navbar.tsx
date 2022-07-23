@@ -14,6 +14,7 @@ import {
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
+import Constants from "../styles/Constants";
 import { DarkModeSwitch } from "./DarkModeSwitch";
 
 interface NavbarProps {
@@ -23,13 +24,13 @@ interface NavbarProps {
 
 const NavLink = ({ href, children }: NavbarProps) => (
   <Link
-    px={2}
-    py={1}
+    p={2}
     rounded={"md"}
     _hover={{
       textDecoration: "none",
       bg: useColorModeValue("gray.200", "gray.700"),
     }}
+    fontSize={{ base: "4xl", md: "md" }}
     href={href}
   >
     {children}
@@ -98,8 +99,16 @@ export default function Nav() {
       </Flex>
 
       {isOpen ? (
-        <Box pb={4} display={{ md: "none" }}>
-          <Stack as={"nav"} spacing={4}>
+        <Box
+          pb={4}
+          display={{ md: "none" }}
+          position={{ base: "fixed" }}
+          width={"100%"}
+          zIndex={1}
+          bg={Constants.bgColor[useColorModeValue("light", "dark")]}
+          h={{ base: "100vh", md: "0" }}
+        >
+          <Stack as={"nav"} spacing="8" alignItems={"center"}>
             {options.map((option) => (
               <NavLink key={option.url} href={option.url}>
                 {option.name}
