@@ -47,16 +47,20 @@ const Home: NextPage = () => {
               borderRadius="full"
               h="auto"
               w={{ base: "60%", lg: "auto" }}
+              maxW="90%"
+              minW="60%"
               mx="auto"
               my={4}
             />
           </GridItem>
           <GridItem area={"text"}>
             <Heading
-              lineHeight={{ base: "taller", lg: "tall" }}
-              size={{ base: "2xl", md: "3xl" }}
-              mr={4}
+              lineHeight={{ base: "taller", md: "tall" }}
+              size={{ base: "xl", md: "3xl" }}
+              pr={{ md: 6 }}
+              pt={{ base: 4 }}
               zIndex={1}
+              w={"100%"}
               textAlign={{ lg: "right", base: "center" }}
             >
               <Highlight
