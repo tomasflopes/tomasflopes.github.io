@@ -24,7 +24,7 @@ const Home: NextPage = () => {
         <title>Tomás Lopes</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container minHeight="93vh" width={"100%"}>
+      <Container minH="93vh" w={"100%"}>
         <Navbar />
         <Grid
           templateAreas={{
