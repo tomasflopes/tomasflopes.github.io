@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 
 import {
+  Flex,
   Grid,
   GridItem,
   Heading,
@@ -10,7 +11,6 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 
-import { Container } from "../components/Container";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
@@ -24,7 +24,13 @@ const Home: NextPage = () => {
         <title>Tomás Lopes</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container minH="93vh" w={"100%"}>
+      <Flex
+        minH="93vh"
+        minW="100vw"
+        alignItems="center"
+        justifyContent="center"
+        flexDirection={"column"}
+      >
         <Navbar />
         <Grid
           templateAreas={{
@@ -79,7 +85,7 @@ const Home: NextPage = () => {
             </Heading>
           </GridItem>
         </Grid>
-      </Container>
+      </Flex>
       <Footer />
     </>
   );

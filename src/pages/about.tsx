@@ -29,7 +29,7 @@ const about: NextPage = () => {
         <title>Tomás Lopes. About me</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container minH="93vh" minW={"100%"}>
+      <Container minH="93vh" minW={"100vw"}>
         <Navbar />
         <Flex>
           <Heading

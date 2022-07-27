@@ -104,7 +104,8 @@ export default function Nav() {
           display={{ md: "none" }}
           position={{ base: "fixed" }}
           width={"100%"}
-          zIndex={1}
+          zIndex={2}
+          overflowY="hidden"
           bg={Constants.bgColor[useColorModeValue("light", "dark")]}
           h={{ base: "100vh", md: "0" }}
         >
