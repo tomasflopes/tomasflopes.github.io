@@ -54,9 +54,11 @@ export default function Nav() {
         justifyContent={"space-between"}
       >
         <HStack spacing={8} alignItems={"center"}>
-          <Heading as="h1" size="lg" noOfLines={1}>
-            Tomás Lopes
-          </Heading>
+          <Link href="/" _hover={{ textDecor: "none" }}>
+            <Heading as="h1" size="lg" noOfLines={1}>
+              Tomás Lopes
+            </Heading>
+          </Link>
           <HStack
             as={"nav"}
             spacing={4}
