@@ -25,7 +25,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Flex
-        w="100vw"
+        w="100%"
         h="91vh"
         overflowX={"hidden"}
         alignItems="center"

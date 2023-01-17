@@ -13,10 +13,10 @@ const projects: NextPage = () => {
         <title>Tomás Lopes. Projects</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container minH="91vh" minW={"100vw"}>
+      <Container minH="91vh" w={"100vw"}>
         <Navbar />
         <Flex>
-          <AnimatedHeader text="About me" />
+          <AnimatedHeader text="Projects" />
         </Flex>
       </Container>
       <Footer />
