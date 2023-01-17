@@ -14,6 +14,7 @@ import {
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
+
 import Constants from "../styles/Constants";
 import { DarkModeSwitch } from "./DarkModeSwitch";
 
@@ -81,7 +82,9 @@ export default function Nav() {
             <Menu>
               <MenuList alignItems={"center"}>
                 {options.map((option) => (
-                  <NavLink href={option.url}>{option.name}</NavLink>
+                  <NavLink key={option.url} href={option.url}>
+                    {option.name}
+                  </NavLink>
                 ))}
               </MenuList>
               <MenuButton

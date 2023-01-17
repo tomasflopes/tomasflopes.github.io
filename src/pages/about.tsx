@@ -2,9 +2,9 @@ import type { NextPage } from "next";
 
 import { Container, Flex } from "@chakra-ui/react";
 import Head from "next/head";
-import AnimatedHeader from "../components/AnimatedHeader";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import PageBreadcrumb from "../components/PageBreadcrumb";
 
 const about: NextPage = () => {
   return (
@@ -16,7 +16,7 @@ const about: NextPage = () => {
       <Container minH="91vh" minW={"100vw"}>
         <Navbar />
         <Flex>
-          <AnimatedHeader text="About me" />
+          <PageBreadcrumb currentPage="About me" />
         </Flex>
       </Container>
       <Footer />
