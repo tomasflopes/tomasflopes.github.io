@@ -55,7 +55,13 @@ export default function Nav() {
       >
         <HStack spacing={8} alignItems={"center"}>
           <Heading as="h1" size="lg" noOfLines={1}>
-            Tomás Lopes
+            <Link
+              textDecor="none"
+              _hover={{ textDecoration: "none" }}
+              href="/"
+            >
+              Tomás Lopes
+            </Link>
           </Heading>
           <HStack
             as={"nav"}

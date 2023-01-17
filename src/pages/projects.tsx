@@ -6,11 +6,11 @@ import AnimatedHeader from "../components/AnimatedHeader";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
-const about: NextPage = () => {
+const projects: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Tomás Lopes. About me</title>
+        <title>Tomás Lopes. Projects</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container minH="91vh" minW={"100vw"}>
@@ -24,4 +24,4 @@ const about: NextPage = () => {
   );
 };
 
-export default about;
+export default projects;
