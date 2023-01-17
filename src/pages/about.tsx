@@ -21,7 +21,7 @@ to{border-right-color: transparent;}
   `;
 
 const about: NextPage = () => {
-  const typewriterAnimation = `${typewriter} .8s steps(44) 1s 1 normal both, ${blinkTextCursor} .8s steps(22) 5 normal forwards`;
+  const typewriterAnimation = `${typewriter} .8s steps(44) 1s 1 normal both, ${blinkTextCursor} .5s steps(22) 5 normal forwards`;
 
   return (
     <>
@@ -29,7 +29,7 @@ const about: NextPage = () => {
         <title>Tomás Lopes. About me</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container minH="93vh" minW={"100vw"}>
+      <Container minH="91vh" minW={"100vw"}>
         <Navbar />
         <Flex>
           <Heading

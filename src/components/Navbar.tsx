@@ -47,7 +47,7 @@ export default function Nav() {
   ];
 
   return (
-    <Box px={4} width={"100%"}>
+    <Box px={4} w="100%">
       <Flex
         h={16}
         alignItems={"center"}
