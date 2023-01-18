@@ -8,7 +8,7 @@ import {
   VisuallyHidden,
 } from "@chakra-ui/react";
 import { ReactNode } from "react";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Constants from "../styles/Constants";
 
 const SocialButton = ({
@@ -48,6 +48,7 @@ export default function Footer() {
     <Box
       bg={Constants.bgColor[useColorModeValue("light", "dark")]}
       color={Constants.color[useColorModeValue("light", "dark")]}
+      maxW="100vw"
     >
       <Container
         as={Stack}
@@ -76,12 +77,6 @@ export default function Footer() {
             }
           >
             <FaLinkedin />
-          </SocialButton>
-          <SocialButton
-            label={"Twitter"}
-            href={"https://twitter.com/tomaslopes_dev"}
-          >
-            <FaTwitter />
           </SocialButton>
         </Stack>
       </Container>

@@ -25,8 +25,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Flex
-        minH="93vh"
-        minW="100vw"
+        w="100%"
+        h="91vh"
+        overflowX={"hidden"}
         alignItems="center"
         justifyContent="center"
         flexDirection={"column"}
@@ -61,7 +62,7 @@ const Home: NextPage = () => {
           </GridItem>
           <GridItem area={"text"}>
             <Heading
-              lineHeight={{ base: "taller", md: "tall" }}
+              lineHeight={{ base: "taller", sm: "tall" }}
               size={{ base: "xl", md: "3xl" }}
               pr={{ md: 6 }}
               pt={{ base: 4 }}

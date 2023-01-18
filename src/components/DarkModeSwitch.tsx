@@ -17,6 +17,7 @@ export const DarkModeSwitch = () => {
 
     toast({
       position: "bottom-left",
+      duration: 1000,
       render: () => (
         <Box
           color="white"

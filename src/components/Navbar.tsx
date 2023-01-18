@@ -14,6 +14,7 @@ import {
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
+
 import Constants from "../styles/Constants";
 import { DarkModeSwitch } from "./DarkModeSwitch";
 
@@ -47,18 +48,18 @@ export default function Nav() {
   ];
 
   return (
-    <Box px={4} width={"100%"}>
+    <Box px={4} w="100%">
       <Flex
         h={16}
         alignItems={"center"}
         justifyContent={"space-between"}
       >
         <HStack spacing={8} alignItems={"center"}>
-          <Link href="/" _hover={{ textDecor: "none" }}>
-            <Heading as="h1" size="lg" noOfLines={1}>
+          <Heading as="h1" size="lg" noOfLines={1}>
+            <Link _hover={{ textDecoration: "none" }} href="/">
               Tomás Lopes
-            </Heading>
-          </Link>
+            </Link>
+          </Heading>
           <HStack
             as={"nav"}
             spacing={4}
@@ -77,7 +78,9 @@ export default function Nav() {
             <Menu>
               <MenuList alignItems={"center"}>
                 {options.map((option) => (
-                  <NavLink href={option.url}>{option.name}</NavLink>
+                  <NavLink key={option.url} href={option.url}>
+                    {option.name}
+                  </NavLink>
                 ))}
               </MenuList>
               <MenuButton
