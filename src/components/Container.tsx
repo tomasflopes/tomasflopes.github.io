@@ -1,7 +1,7 @@
 import { Flex, FlexProps, useColorMode } from "@chakra-ui/react";
 import Constants from "../styles/Constants";
 
-export const Container = (props: FlexProps) => {
+const Container = (props: FlexProps) => {
   const { colorMode } = useColorMode();
 
   return (
@@ -17,3 +17,5 @@ export const Container = (props: FlexProps) => {
     />
   );
 };
+
+export default Container;

@@ -44,7 +44,7 @@ export default function Nav() {
   const options = [
     { name: "About me", url: "/about" },
     { name: "Projects", url: "/projects" },
-    { name: "Contact me", url: "/contact-me" },
+    { name: "Contact me", url: "/contacts" },
   ];
 
   return (

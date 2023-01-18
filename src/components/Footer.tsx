@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 import {
   Box,
   chakra,
@@ -7,7 +9,7 @@ import {
   useColorModeValue,
   VisuallyHidden,
 } from "@chakra-ui/react";
-import { ReactNode } from "react";
+
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Constants from "../styles/Constants";
 

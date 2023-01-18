@@ -1,7 +1,9 @@
 import type { NextPage } from "next";
-
-import { Container, Flex } from "@chakra-ui/react";
 import Head from "next/head";
+
+import { Flex } from "@chakra-ui/react";
+
+import Container from "../components/Container";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import PageBreadcrumb from "../components/PageBreadcrumb";

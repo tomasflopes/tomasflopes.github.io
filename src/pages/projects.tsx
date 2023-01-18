@@ -1,8 +1,9 @@
 import type { NextPage } from "next";
+import Head from "next/head";
 
 import { Flex } from "@chakra-ui/react";
-import Head from "next/head";
-import { Container } from "../components/Container";
+
+import Container from "../components/Container";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import PageBreadcrumb from "../components/PageBreadcrumb";
@@ -153,8 +154,4 @@ const projects: NextPage = () => {
   );
 };
 
-<<<<<<< HEAD
-export default Projects;
-=======
 export default projects;
->>>>>>> 4ee72eb28eb475f9700e512900934c078eff1e70
