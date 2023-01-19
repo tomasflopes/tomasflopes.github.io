@@ -21,7 +21,7 @@ const projects: NextPage = () => {
       <PageBreadcrumb currentPage="projects" />
       <Container minH="79vh" my="4">
         <Flex
-          mx="auto"
+          m="auto"
           w="80%"
           gap="10"
           wrap="wrap"

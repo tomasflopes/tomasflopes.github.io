@@ -11,12 +11,9 @@ const Container = (props: FlexProps) => {
       justifyContent="flex-start"
       bg={Constants.bgColor[colorMode]}
       color={Constants.color[colorMode]}
-      minW="100vw"
-      maxW="100%"
+      w="100vw"
       {...props}
-    >
-      {props.children}
-    </Flex>
+    />
   );
 };
 
