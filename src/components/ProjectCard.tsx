@@ -14,9 +14,10 @@ import {
   Link,
   Stack,
   Text,
+  useColorModeValue,
 } from "@chakra-ui/react";
-import { useRouter } from "next/router";
 import { FaGithub } from "react-icons/fa";
+import Constants from "../styles/Constants";
 
 interface Props {
   title: string;
@@ -24,7 +25,6 @@ interface Props {
   description: string;
   technologies: string[];
   isNew: boolean;
-  numberOfCommits: number;
   githubRepoUrl: string;
 }
 
@@ -34,13 +34,15 @@ const ProjectCard: React.FC<Props> = ({
   description,
   technologies,
   isNew,
-  numberOfCommits,
   githubRepoUrl,
 }) => {
-  const router = useRouter();
-
   return (
-    <Card maxW="sm">
+    <Card
+      maxW="sm"
+      dropShadow="2xl"
+      shadow="lg"
+      bg={Constants.cardColor[useColorModeValue("light", "dark")]}
+    >
       <CardBody>
         <Image
           src={thumbnailHref}

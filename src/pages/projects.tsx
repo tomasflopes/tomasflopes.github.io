@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import PageBreadcrumb from "../components/PageBreadcrumb";
 import ProjectCard from "../components/ProjectCard";
+import projectsData from "../shared/projects";
 
 const projects: NextPage = () => {
   return (
@@ -16,9 +17,9 @@ const projects: NextPage = () => {
         <title>Tomás Lopes. Projects</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container minH="91vh" minW={"100vw"}>
-        <Navbar />
-        <PageBreadcrumb currentPage="projects" />
+      <Navbar />
+      <PageBreadcrumb currentPage="projects" />
+      <Container minH="79vh" my="4">
         <Flex
           mx="auto"
           w="80%"
@@ -27,126 +28,16 @@ const projects: NextPage = () => {
           alignItems="center"
           justifyContent="space-around"
         >
-          <ProjectCard
-            title="Sample"
-            thumbnailHref="/assets/sampi-thumb.png"
-            description="Labore nulla tempor id ipsum duis quis mollit  cupidatat nulla reprehenderit mollit cupidatat ipsum non reprehenderit duis. Minim eu voluptate eiusmod anim adipisicing nisi irure ex aliquip magna cillum qui veniam duis. Fugiat aute irure deserunt Lorem exercitation velit minim deserunt exercitation mollit exercitation culpa aute. "
-            technologies={[
-              "React",
-              "Next.js",
-              "Chakra UI",
-              "TypeScript",
-              "Node.js",
-              "Express",
-              "MongoDB",
-              "Mongoose",
-              "Docker",
-              "Jest",
-              "Git",
-              "GitHub Actions",
-              "Heroku",
-              "Vercel",
-            ]}
-            isNew={true}
-            numberOfCommits={100}
-            githubRepoUrl="https://github.com/tomas050302/sampi"
-          />
-          <ProjectCard
-            title="Sample"
-            thumbnailHref="/assets/sampi-thumb.png"
-            description="Labore nulla tempor id ipsum duis quis mollit  cupidatat nulla reprehenderit mollit cupidatat ipsum non reprehenderit duis. Minim eu voluptate eiusmod anim adipisicing nisi irure ex aliquip magna cillum qui veniam duis. Fugiat aute irure deserunt Lorem exercitation velit minim deserunt exercitation mollit exercitation culpa aute. "
-            technologies={[
-              "React",
-              "Next.js",
-              "Chakra UI",
-              "TypeScript",
-              "Node.js",
-              "Express",
-              "MongoDB",
-              "Mongoose",
-              "Docker",
-              "Jest",
-              "Git",
-              "GitHub Actions",
-              "Heroku",
-              "Vercel",
-            ]}
-            isNew={true}
-            numberOfCommits={100}
-            githubRepoUrl="https://github.com/tomas050302/sampi"
-          />
-          <ProjectCard
-            title="Sample"
-            thumbnailHref="/assets/sampi-thumb.png"
-            description="Labore nulla tempor id ipsum duis quis mollit  cupidatat nulla reprehenderit mollit cupidatat ipsum non reprehenderit duis. Minim eu voluptate eiusmod anim adipisicing nisi irure ex aliquip magna cillum qui veniam duis. Fugiat aute irure deserunt Lorem exercitation velit minim deserunt exercitation mollit exercitation culpa aute. "
-            technologies={[
-              "React",
-              "Next.js",
-              "Chakra UI",
-              "TypeScript",
-              "Node.js",
-              "Express",
-              "MongoDB",
-              "Mongoose",
-              "Docker",
-              "Jest",
-              "Git",
-              "GitHub Actions",
-              "Heroku",
-              "Vercel",
-            ]}
-            isNew={true}
-            numberOfCommits={100}
-            githubRepoUrl="https://github.com/tomas050302/sampi"
-          />
-          <ProjectCard
-            title="Sample"
-            thumbnailHref="/assets/sampi-thumb.png"
-            description="Labore nulla tempor id ipsum duis quis mollit  cupidatat nulla reprehenderit mollit cupidatat ipsum non reprehenderit duis. Minim eu voluptate eiusmod anim adipisicing nisi irure ex aliquip magna cillum qui veniam duis. Fugiat aute irure deserunt Lorem exercitation velit minim deserunt exercitation mollit exercitation culpa aute. "
-            technologies={[
-              "React",
-              "Next.js",
-              "Chakra UI",
-              "TypeScript",
-              "Node.js",
-              "Express",
-              "MongoDB",
-              "Mongoose",
-              "Docker",
-              "Jest",
-              "Git",
-              "GitHub Actions",
-              "Heroku",
-              "Vercel",
-            ]}
-            isNew={true}
-            numberOfCommits={100}
-            githubRepoUrl="https://github.com/tomas050302/sampi"
-          />
-          <ProjectCard
-            title="Sample"
-            thumbnailHref="/assets/sampi-thumb.png"
-            description="Labore nulla tempor id ipsum duis quis mollit  cupidatat nulla reprehenderit mollit cupidatat ipsum non reprehenderit duis. Minim eu voluptate eiusmod anim adipisicing nisi irure ex aliquip magna cillum qui veniam duis. Fugiat aute irure deserunt Lorem exercitation velit minim deserunt exercitation mollit exercitation culpa aute. "
-            technologies={[
-              "React",
-              "Next.js",
-              "Chakra UI",
-              "TypeScript",
-              "Node.js",
-              "Express",
-              "MongoDB",
-              "Mongoose",
-              "Docker",
-              "Jest",
-              "Git",
-              "GitHub Actions",
-              "Heroku",
-              "Vercel",
-            ]}
-            isNew={true}
-            numberOfCommits={100}
-            githubRepoUrl="https://github.com/tomas050302/sampi"
-          />
+          {projectsData.map((project) => (
+            <ProjectCard
+              title={project.title}
+              thumbnailHref={project.thumbnailHref}
+              technologies={project.technologies}
+              description={project.description}
+              isNew={project.isNew}
+              githubRepoUrl={project.githubRepoUrl}
+            />
+          ))}
         </Flex>
       </Container>
       <Footer />

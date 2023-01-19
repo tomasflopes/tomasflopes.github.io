@@ -1,0 +1,46 @@
+export default [
+  {
+    title: "Sample",
+    thumbnailHref: "/assets/sampi-thumb.png",
+    description:
+      "Labore nulla tempor id ipsum duis quis. Minim eu voluptate eiusmod anim adipisicing nisi irure ex aliquip magna cillum qui veniam duis. Fugiat aute irure deserunt Lorem exercitation velit minim deserunt exercitation mollit exercitation culpa aute. ",
+    technologies: [
+      "React",
+      "Next.js",
+      "Chakra UI",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Mongoose",
+      "Docker",
+      "Jest",
+      "Git",
+      "GitHub Actions",
+      "Heroku",
+      "Vercel",
+    ],
+    isNew: true,
+    githubRepoUrl: "https://github.com/tomas050302/sampi",
+  },
+  {
+    title: "Sample",
+    thumbnailHref: "/assets/sampi-thumb.png",
+    description:
+      "Labore nulla tempor id ipsum duis quis. Minim eu voluptate eiusmod anim adipisicing nisi irure ex aliquip magna cillum qui veniam duis. Fugiat aute irure deserunt Lorem exercitation velit minim deserunt exercitation mollit exercitation culpa aute. ",
+    technologies: [
+      "React",
+      "Next.js",
+      "Chakra UI",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Mongoose",
+      "Docker",
+      "Jest",
+    ],
+    isNew: false,
+    githubRepoUrl: "https://github.com/tomas050302/sampi",
+  },
+];

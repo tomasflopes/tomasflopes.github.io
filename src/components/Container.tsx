@@ -12,9 +12,11 @@ const Container = (props: FlexProps) => {
       bg={Constants.bgColor[colorMode]}
       color={Constants.color[colorMode]}
       minW="100vw"
-      w="100%"
+      maxW="100%"
       {...props}
-    />
+    >
+      {props.children}
+    </Flex>
   );
 };
 
