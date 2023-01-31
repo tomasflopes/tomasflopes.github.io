@@ -6,7 +6,6 @@ import { Flex } from "@chakra-ui/react";
 import Container from "../components/Container";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import PageBreadcrumb from "../components/PageBreadcrumb";
 import ProjectCard from "../components/ProjectCard";
 import projectsData from "../shared/projects";
 
@@ -18,8 +17,7 @@ const projects: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <PageBreadcrumb currentPage="projects" />
-      <Container minH="79vh" my="4">
+      <Container minH="82vh" my="4" maxW="99vw">
         <Flex
           m="auto"
           w="80%"

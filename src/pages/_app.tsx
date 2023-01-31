@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         <Head>
           <meta
             name="viewport"
-            content="width=device-width, initial-scale=0.8"
+            content="width=device-width, initial-scale=0.7"
           />
         </Head>
         <Component {...pageProps} key={router.route} />

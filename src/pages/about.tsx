@@ -4,7 +4,6 @@ import Head from "next/head";
 import Container from "../components/Container";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import PageBreadcrumb from "../components/PageBreadcrumb";
 
 const about: NextPage = () => {
   return (
@@ -15,7 +14,6 @@ const about: NextPage = () => {
       </Head>
       <Container minH="91vh" minW={"100vw"}>
         <Navbar />
-        <PageBreadcrumb currentPage="About me" />
       </Container>
       <Footer />
     </>
