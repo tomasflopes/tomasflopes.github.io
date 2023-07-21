@@ -49,7 +49,7 @@ const Home: NextPage = () => {
         >
           <GridItem area={"image"}>
             <Image
-              src={"http://github.com/tomas050302.png"}
+              src={"http://github.com/tomasflopes.png"}
               alt="Tomás Lopes"
               borderRadius="full"
               h="auto"
