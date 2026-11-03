@@ -2,7 +2,7 @@ export const profile = {
   name: "Tomás Lopes",
   role: "Backend software engineer",
   location: "Espinho, Portugal",
-  email: "tomas050302@gmail.com",
+  email: "tomaslopes.dev@gmail.com",
   github: "https://github.com/tomasflopes",
   linkedin: "https://www.linkedin.com/in/tomasflopes/",
 };
@@ -182,7 +182,9 @@ export const education = [
 ];
 
 export const skills: { group: string; items: string[] }[] = [
-  { group: "Languages", items: ["Java", "Scala", "Python", "TypeScript", "SQL"] },
-  { group: "Backend", items: ["Spring", "Kafka", "Cassandra", "Node.js", "Docker"] },
+  { group: "Languages", items: ["Java", "Scala", "TypeScript", "Python", "SQL"] },
+  { group: "Backend", items: ["Spring", "Kafka", "Node.js", "Fastify"] },
+  { group: "Data", items: ["Cassandra", "PostgreSQL", "MongoDB"] },
   { group: "Frontend", items: ["React", "Next.js"] },
+  { group: "Tooling", items: ["Docker", "GitHub Actions"] },
 ];
