@@ -1,0 +1,27 @@
+1:"$Sreact.fragment"
+2:"/_next/static/chunks/3qfy96eoyh-ek.js"
+3:I[39756,["$2"],"default"]
+4:I[37457,["$2"],"default"]
+b:I[97367,["$2"],"OutletBoundary"]
+c:"$Sreact.suspense"
+f:"ViewportBoundary"
+10:I[97367,["$2"],"$f"]
+11:"MetadataBoundary"
+12:I[97367,["$2"],"$11"]
+13:I[27201,["$2"],"IconMark"]
+:HL["/_next/static/chunks/3agwmwwyx-2k-.css","style"]
+6:X
+9:X
+9:C
+a:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[["$","main",null,{"className":"wrap not-found","children":[["$","p",null,{"className":"contact-kicker","children":"404"}],["$","h1",null,{"children":"Nothing here."}],["$","p",null,{"className":"lede","children":"That page doesn’t exist, or it did on the old version of this site."}],["$","a",null,{"className":"inline","href":"/","children":"Back to the homepage"}]]}],null,["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]]}],"p":"$@e","v":null,"s":"$6"}}]]
+7:[["children",{"s":"/_not-found","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","template":["$","$L4",null,{}]}]]}],"p":"$@8","v":"$9","s":"$6"},"c":"$Qa"}]]
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/3agwmwwyx-2k-.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/3qfy96eoyh-ek.js","async":true}]],["$","html",null,{"lang":"en","className":"iNCt3q_variable _14iPxa_variable _1NxLqG_variable","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"dangerouslySetInnerHTML":{"__html":"try{var t=localStorage.getItem(\"theme\");if(t===\"light\"||t===\"dark\")document.documentElement.dataset.theme=t}catch(e){}"}}]}],["$","body",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","template":["$","$L4",null,{}],"notFound":[["$","main",null,{"className":"wrap not-found","children":[["$","p",null,{"className":"contact-kicker","children":"404"}],["$","h1",null,{"children":"Nothing here."}],["$","p",null,{"className":"lede","children":"That page doesn’t exist, or it did on the old version of this site."}],["$","a",null,{"className":"inline","href":"/","children":"Back to the homepage"}]]}],[]]}]}]]}]]}],"p":"$@5","v":null,"s":"$6"},"c":"$Q7"},"h":{"r":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L10",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#f3efe6","media":"(prefers-color-scheme: light)"}],["$","meta","3",{"name":"theme-color","content":"#121210","media":"(prefers-color-scheme: dark)"}]]}],["$","$L12",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$c",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Tomás Lopes"}],["$","meta","1",{"name":"description","content":"Tomás Lopes is a backend software engineer at Blip in Porto, working with Java, Scala and Kafka, and a guest assistant professor at ISEP."}],["$","meta","2",{"property":"og:title","content":"Tomás Lopes"}],["$","meta","3",{"property":"og:description","content":"Tomás Lopes is a backend software engineer at Blip in Porto, working with Java, Scala and Kafka, and a guest assistant professor at ISEP."}],["$","meta","4",{"property":"og:url","content":"https://tomasflopes.github.io/"}],["$","meta","5",{"property":"og:image","content":"https://tomasflopes.github.io/tomas.jpg"}],["$","meta","6",{"property":"og:type","content":"profile"}],["$","meta","7",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","8",{"name":"twitter:title","content":"Tomás Lopes"}],["$","meta","9",{"name":"twitter:description","content":"Tomás Lopes is a backend software engineer at Blip in Porto, working with Java, Scala and Kafka, and a guest assistant professor at ISEP."}],["$","meta","10",{"name":"twitter:image","content":"https://tomasflopes.github.io/tomas.jpg"}],["$","link","11",{"rel":"icon","href":"/icon.svg"}],["$","$L13","12",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@14","v":null,"s":"$6"}},"a":"$@15","u":"$@16","b":"NvnGYzFHEeIXpzJNavXAf"}
+d:null
+6:300
+16:true
+6:C
+15:0
+8:"$undefined"
+5:"$undefined"
+14:"$undefined"
+e:"$undefined"
