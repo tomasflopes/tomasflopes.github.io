@@ -1,10 +1,11 @@
-import { CopyEmail, LocalTime, ThemeToggle } from "./client";
-import { education, profile, projects, skills, teaching, work } from "../content";
+import { CopyEmail, ThemeToggle } from "./client";
+import { TheLine } from "./line";
+import { Hero, MotionRoot, Reveal, ScrollProgress } from "./motion";
+import { profile, projects, skills } from "../content";
 
 const nav = [
-  { href: "#work", label: "Work" },
+  { href: "#line", label: "The line" },
   { href: "#projects", label: "Projects" },
-  { href: "#teaching", label: "Teaching" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -16,32 +17,14 @@ function Arrow() {
   );
 }
 
-function Section({
-  id,
-  label,
-  children,
-}: {
-  id: string;
-  label: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section id={id} className="section" aria-labelledby={`${id}-title`}>
-      <h2 id={`${id}-title`} className="section-label">
-        {label}
-      </h2>
-      <div className="section-body">{children}</div>
-    </section>
-  );
-}
-
 export default function Home() {
   return (
-    <>
+    <MotionRoot>
+      <ScrollProgress />
       <header className="topbar">
         <div className="wrap topbar-inner">
           <a href="#top" className="mark">
-            Tomás Lopes
+            Tomás Lopes<span className="mark-dot">.</span>
           </a>
           <nav aria-label="Sections">
             <ul>
@@ -57,28 +40,24 @@ export default function Home() {
       </header>
 
       <main id="top" className="wrap">
-        <section className="hero">
-          <div className="hero-text">
-            <p className="meta">
-              <span>{profile.role}</span>
-              <span>{profile.location}</span>
-              <LocalTime />
-            </p>
-            <h1>
-              Tomás <em>Lopes</em>
-            </h1>
+        <Hero
+          meta={[profile.role]}
+          lede={
             <p className="lede">
-              I write backend software at{" "}
+              At{" "}
               <a href="https://www.blip.pt" className="inline">
                 Blip
               </a>{" "}
-              in Porto, mostly Java and Scala services that talk to each other over Kafka. I also
-              teach first-year programming at ISEP, the school where I did my degree and where
-              I&rsquo;m now doing a master&rsquo;s.
+              I&rsquo;m a backend engineer, building Java and Scala services that talk over Kafka.
+              On my own projects I go <span className="hl">fullstack</span>, from the database to
+              the UI, because I care more about solving the problem than about the stack. I also
+              teach first-year programming at ISEP.
             </p>
+          }
+          links={
             <ul className="hero-links">
               <li>
-                <a href={`mailto:${profile.email}`}>Email</a>
+                <a href={`mailto:${profile.email}`}>Email me</a>
               </li>
               <li>
                 <a href={profile.github}>
@@ -91,143 +70,118 @@ export default function Home() {
                 </a>
               </li>
             </ul>
-          </div>
-          <figure className="portrait">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/tomas.jpg" alt="Tomás Lopes" width={460} height={460} />
-          </figure>
+          }
+        />
+
+        <section id="line" className="line-section" aria-labelledby="line-title">
+          <header className="line-head">
+            <Reveal>
+              <p className="section-label">The line</p>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <h2 id="line-title" className="statement">
+                Backend is my day job. Fullstack is how I build{" "}
+                <span className="hl">everything else</span>.
+              </h2>
+            </Reveal>
+          </header>
+          <Reveal delay={0.12}>
+            <TheLine />
+          </Reveal>
         </section>
 
-        <Section id="work" label="Work">
-          {work.map((job) => (
-            <article key={job.company} className="job">
-              <header className="job-head">
-                <h3>{job.company}</h3>
-                {job.context && <span className="muted">{job.context}</span>}
-              </header>
-              <ol className={job.roles.length > 1 ? "roles roles-track" : "roles"}>
-                {job.roles.map((role) => (
-                  <li key={role.title} className="role">
-                    <div className="role-head">
-                      <h4>{role.title}</h4>
-                      <span className="period">{role.period}</span>
-                    </div>
-                    <ul className="points">
-                      {role.points.map((point) => (
-                        <li key={point}>{point}</li>
-                      ))}
-                    </ul>
-                  </li>
-                ))}
-              </ol>
-            </article>
-          ))}
-        </Section>
-
-        <Section id="projects" label="Projects">
-          <ul className="rows">
-            {projects.map((project) => (
-              <li key={project.name} className="row">
-                <span className="period">{project.year}</span>
-                <div className="row-main">
-                  <h3>{project.name}</h3>
-                  <p>{project.text}</p>
-                  <p className="stack">{project.stack.join(" · ")}</p>
-                </div>
-                <div className="row-links">
-                  {project.status && <span className="status">{project.status}</span>}
-                  {project.links.map((link) => (
-                    <a key={link.href} href={link.href}>
-                      {link.label} <Arrow />
-                    </a>
-                  ))}
-                </div>
-              </li>
-            ))}
-          </ul>
-          <p className="aside">
-            Every December I do{" "}
-            <a className="inline" href="https://github.com/tomasflopes/aoc-2025">
-              Advent of Code
-            </a>{" "}
-            in Python, and lately{" "}
-            <a className="inline" href="https://github.com/tomasflopes/everybody-codes">
-              Everybody Codes
-            </a>{" "}
-            too.
-          </p>
-        </Section>
-
-        <Section id="teaching" label="Teaching & community">
-          <ul className="rows">
-            {teaching.map((item) => (
-              <li key={item.title} className="row">
-                <span className="period">{item.period}</span>
-                <div className="row-main">
-                  <h3>{item.title}</h3>
-                  <p className="muted org">{item.org}</p>
-                  <p>{item.text}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </Section>
-
-        <Section id="background" label="Background">
-          <div className="split">
-            <div>
-              <h3 className="sub">Education</h3>
-              <ul className="plain">
-                {education.map((item) => (
-                  <li key={item.title}>
-                    <div className="role-head">
-                      <h4>{item.title}</h4>
-                      <span className="period">{item.period}</span>
-                    </div>
-                    <p className="muted">
-                      {item.org}
-                      {item.note && <>. {item.note}</>}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="sub">Tools I use most</h3>
-              <dl className="skills">
-                {skills.map((group) => (
-                  <div key={group.group}>
-                    <dt>{group.group}</dt>
-                    <dd>{group.items.join(", ")}</dd>
+        <section id="projects" className="section" aria-labelledby="projects-title">
+          <Reveal className="section-side">
+            <h2 id="projects-title" className="section-label">
+              Projects
+            </h2>
+          </Reveal>
+          <div className="section-body">
+            <ul className="rows">
+              {projects.map((project, i) => (
+                <Reveal as="li" key={project.name} className="row" delay={Math.min(i, 3) * 0.05}>
+                  <span className="period">{project.year}</span>
+                  <div className="row-main">
+                    <h3>{project.name}</h3>
+                    <p>{project.text}</p>
+                    <p className="stack">{project.stack.join(" · ")}</p>
                   </div>
-                ))}
-              </dl>
-            </div>
+                  <div className="row-links">
+                    {project.status && <span className="status">{project.status}</span>}
+                    {project.links.map((link) => (
+                      <a key={link.href} href={link.href}>
+                        {link.label} <Arrow />
+                      </a>
+                    ))}
+                  </div>
+                </Reveal>
+              ))}
+            </ul>
+            <Reveal>
+              <p className="aside">
+                Every December I do{" "}
+                <a className="inline" href="https://github.com/tomasflopes/aoc-2025">
+                  Advent of Code
+                </a>{" "}
+                in Python, and lately{" "}
+                <a className="inline" href="https://github.com/tomasflopes/everybody-codes">
+                  Everybody Codes
+                </a>{" "}
+                too.
+              </p>
+            </Reveal>
           </div>
-        </Section>
+        </section>
+
+        <section id="tools" className="section" aria-labelledby="tools-title">
+          <Reveal className="section-side">
+            <h2 id="tools-title" className="section-label">
+              Tools I use most
+            </h2>
+          </Reveal>
+          <Reveal className="section-body">
+            <dl className="skills">
+              {skills.map((group) => (
+                <div key={group.group}>
+                  <dt>{group.group}</dt>
+                  <dd>{group.items.join(", ")}</dd>
+                </div>
+              ))}
+            </dl>
+          </Reveal>
+        </section>
       </main>
 
       <footer id="contact" className="contact">
         <div className="wrap">
-          <p className="contact-kicker">Get in touch</p>
-          <a className="contact-email" href={`mailto:${profile.email}`}>
-            {profile.email}
-          </a>
-          <div className="contact-row">
-            <CopyEmail email={profile.email} />
-            <a href={profile.github}>
-              GitHub <Arrow />
+          <Reveal>
+            <p className="section-label">Next chapter</p>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <p className="contact-lead">Have something in mind? Say hello.</p>
+          </Reveal>
+          <Reveal delay={0.16}>
+            <a className="contact-email" href={`mailto:${profile.email}`}>
+              {profile.email}
             </a>
-            <a href={profile.linkedin}>
-              LinkedIn <Arrow />
-            </a>
-          </div>
+          </Reveal>
+          <Reveal delay={0.24}>
+            <div className="contact-row">
+              <CopyEmail email={profile.email} />
+              <a href={profile.github}>
+                GitHub <Arrow />
+              </a>
+              <a href={profile.linkedin}>
+                LinkedIn <Arrow />
+              </a>
+            </div>
+          </Reveal>
           <p className="colophon">
             <span>© {new Date().getFullYear()} Tomás Lopes</span>
-            <span>Set in Newsreader and IBM Plex</span>
+            <span>Built with Next.js and Motion</span>
           </p>
         </div>
       </footer>
-    </>
+    </MotionRoot>
   );
 }

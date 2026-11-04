@@ -1,28 +1,27 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from "next/font/google";
+import { Poppins, Roboto, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 
-const serif = Newsreader({
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  weight: ["400", "500"],
-  variable: "--font-serif",
-});
-
-const sans = IBM_Plex_Sans({
+const display = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-  variable: "--font-sans",
+  variable: "--font-display",
 });
 
-const mono = IBM_Plex_Mono({
+const body = Roboto({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-body",
+});
+
+const mono = Roboto_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-mono",
 });
 
 const description =
-  "Tomás Lopes is a backend software engineer at Blip in Porto, working with Java, Scala and Kafka, and a guest assistant professor at ISEP.";
+  "Tomás Lopes is a software engineer from Portugal: backend at Blip with Java, Scala and Kafka, fullstack on his own projects, and a guest assistant professor at ISEP.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tomasflopes.github.io"),
@@ -40,8 +39,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f3efe6" },
-    { media: "(prefers-color-scheme: dark)", color: "#121210" },
+    { media: "(prefers-color-scheme: light)", color: "#faf6f0" },
+    { media: "(prefers-color-scheme: dark)", color: "#131110" },
   ],
 };
 
@@ -52,7 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${serif.variable} ${sans.variable} ${mono.variable}`}
+      className={`${display.variable} ${body.variable} ${mono.variable}`}
       suppressHydrationWarning
     >
       <head>
