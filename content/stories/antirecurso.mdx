@@ -1,0 +1,59 @@
+---
+stationId: antirecurso
+title: AntiRecurso
+dek: An exam prep platform for ISEP students that started as a way to study for one exam.
+year: 2023 - 2025
+role: Frontend rewrite, most of the features after the MVP and the question crawler
+stack: [React, Next.js, PHP, TypeScript, Python]
+links:
+  - label: Live
+    href: https://antirecurso.nei-isep.org
+  - label: Source
+    href: https://github.com/Nucleo-Estudantes-Informatica-ISEP/antirecurso
+stats:
+  - value: 2 weeks
+    label: from idea to the first version
+  - value: 1,000+
+    label: exams solved on the day of the first exam
+  - value: 8,000+
+    label: questions collected by the crawler
+---
+
+## The app everyone already used, but nobody could update
+
+There was already an AntiRecurso before ours: an Android app made by a former ISEP student (shout out). It was also showing its age. It only ran on Android, it worked offline so the questions never changed, and plenty of them were out of date or even worse with the wrong answer. The app was not open source, so nobody could fix it. It was a great idea, but it no longer worked for the students.
+
+At NEI, the computer engineering student association, we decided to rebuild it as a web app. The honest reason: we had a Computer Networks exam in the second semester of our second year and wanted something better to study with. We shipped the first version in two weeks.
+
+That version only had supported that course's exam. On the day of the exam, students solved more than 1,000 practice exams on it. It was the first time I saw something I built used by that many people at once.
+
+After that, every exam season went the same way: instead of studying, we worked on the platform. It was a great excuse. The exams turned out fine, and so did the platform.
+
+## Getting the questions in
+
+A quiz platform without questions is useless, so the first real problem was seeding it.
+
+The old app stored its questions as serialized Java objects. Without the original source code, which I didn't have, those bytes don't mean much. I "reverse engineered" the app (i.e. guessed what those fields should mean) until I could read them and pull out the questions and answers.
+
+For everything else I wrote a lot of Python scripts that collected questions and answers from each teacher's own material on the course platform. At first it was a bit shady, but eventually we asked for permission and everyone was fine with it. First do and then apologize, I guess. The scripts collected more than 8,000 questions across 8+ courses.
+
+<QuestionPipeline />
+
+## Rebuilding it while people used it
+
+The first version was PHP from top to bottom. I rewrote the whole frontend in React and built most of the features that came after the MVP on both the frontend and the backend. These are the ones students leaned on most:
+
+- A realistic exam mode, graded/penalized the way the real exam is.
+- Practice modes with only new questions or only the ones you got wrong.
+- Statistics per course, a leaderboard and a calculator for the grade you still need.
+- Dark mode, avatars, password recovery, and a page for shared course summaries.
+
+## What I'd do differently
+
+The hardest part wasn't traffic, it was bad data. A lot of questions, mostly the ones from the old app, had the wrong answer marked as correct. They needed moderation, but we kept shipping features for students and pushed the back office to the last semester. Until then, I fixed answers by editing the database by hand. I think that it is needless to say that it was a terrible idea.
+
+I'd also pick a different language for the backend. A rewrite in TypeScript started in the platform's second semester live, and it never got finished.
+
+## Where it is now
+
+I no longer work on it day to day. These days I help with the occasional code review and talk architecture with the newer members of NEI, who keep it running.

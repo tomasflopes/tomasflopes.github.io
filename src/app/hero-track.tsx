@@ -4,16 +4,12 @@ import { animate, motion, useMotionValue, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { Train, WHEEL_R } from "./line";
 
-/** How far left of the platform the train waits, out of sight, before pulling in. */
 const OFFSCREEN = -560;
 
 const reducedMotion = () =>
-  typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/**
- * The hero's call to action: a train parked at a platform. Riding it sends the train off
- * and scrolls to the line below; it pulls back in once the visitor has moved on.
- */
 export function HeroTrack() {
   const x = useMotionValue(OFFSCREEN);
   const wheelTurn = useTransform(x, (v) => (v / WHEEL_R) * (180 / Math.PI));
@@ -45,7 +41,10 @@ export function HeroTrack() {
     if (busy.current) return;
     busy.current = true;
     setRunning(true);
-    window.setTimeout(() => target?.scrollIntoView({ behavior: "smooth" }), 300);
+    window.setTimeout(
+      () => target?.scrollIntoView({ behavior: "smooth" }),
+      300,
+    );
     animate(x, window.innerWidth + 400, {
       duration: 1.2,
       ease: [0.55, 0, 1, 0.45],
@@ -72,9 +71,17 @@ export function HeroTrack() {
       <div className="ht-rail" />
       <div className="ht-platform" />
 
-      <motion.div className="ht-train" style={{ x }} onClick={ride} aria-hidden="true">
+      <motion.div
+        className="ht-train"
+        style={{ x }}
+        onClick={ride}
+        aria-hidden="true"
+      >
         <div className="ht-train-inner">
-          <svg viewBox="-100 -72 205 72" className={running ? "train is-running" : "train"}>
+          <svg
+            viewBox="-100 -72 205 72"
+            className={running ? "train is-running" : "train"}
+          >
             <Train wheelTurn={wheelTurn} />
           </svg>
         </div>

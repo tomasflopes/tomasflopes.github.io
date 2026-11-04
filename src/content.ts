@@ -1,6 +1,6 @@
 export const profile = {
   name: "Tomás Lopes",
-  role: "Software engineer · Porto",
+  role: "Software Engineer · Porto",
   email: "tomaslopes.dev@gmail.com",
   github: "https://github.com/tomasflopes",
   linkedin: "https://www.linkedin.com/in/tomasflopes/",
@@ -8,7 +8,6 @@ export const profile = {
 
 export type Station = {
   id: string;
-  /** Short label printed on the map. */
   name: string;
   year: string;
   line: "work" | "projects" | "both";
@@ -20,8 +19,16 @@ export type Station = {
   current?: boolean;
 };
 
-/** In order of travel: the train visits them oldest first. */
 export const stations: Station[] = [
+  {
+    id: "high-school",
+    name: "Colégio de Gaia",
+    year: "2017",
+    line: "both",
+    title: "IT and Multimedia Technologies",
+    org: "Colégio de Gaia · Double-certification course",
+    text: "High school focused in IT, from 2017 to 2020. Where both lines start.",
+  },
   {
     id: "sampi",
     name: "Sampi",
@@ -29,7 +36,7 @@ export const stations: Station[] = [
     line: "projects",
     title: "Sampi",
     org: "High school final project",
-    text: "A mobile app for organising sports tournaments with friends. My first fullstack project.",
+    text: "A mobile app for my friends' Sunday football league: groups, matches and stats. My first fullstack project.",
     links: [{ label: "Source", href: "https://github.com/tomasflopes/sampi" }],
   },
   {
@@ -39,7 +46,7 @@ export const stations: Station[] = [
     line: "both",
     title: "BSc Computer Engineering",
     org: "Instituto Superior de Engenharia do Porto",
-    text: "Where both lines start. Finished in 2024 with a final grade of 17/20.",
+    text: "Finished in 2024 with a final grade of 17/20.",
   },
   {
     id: "critical",
@@ -48,7 +55,7 @@ export const stations: Station[] = [
     line: "work",
     title: "Software Developer Intern",
     org: "Critical Manufacturing",
-    text: "Built a dashboard for analysing product test suites, used by the team and by clients.",
+    text: "Built a dashboard for analyzing product test suites, used by the team and by clients.",
   },
   {
     id: "antirecurso",
@@ -72,9 +79,11 @@ export const stations: Station[] = [
     year: "2023",
     line: "projects",
     title: "RobDroneGo",
-    org: "Degree project, team of five",
-    text: "Fleet management for campus robots and drones: services in Node.js and .NET, a Prolog task planner, and a 3D campus view.",
-    links: [{ label: "Source", href: "https://github.com/miseEnPlace-dev/lapr5" }],
+    org: "Degree project (LAPR-5), team of five",
+    text: "Fleet management for campus robots and drones: services in Node.js and .NET, a Prolog task planner and a 3D campus view.",
+    links: [
+      { label: "Source", href: "https://github.com/miseEnPlace-dev/lapr5" },
+    ],
   },
   {
     id: "blip-intern",
@@ -84,6 +93,16 @@ export const stations: Station[] = [
     title: "Application Engineering Intern",
     org: "Blip",
     text: "Restructured an Apache Storm cluster, cutting its resource usage by 50%.",
+  },
+  {
+    id: "enei",
+    name: "ENEI",
+    year: "2024",
+    line: "projects",
+    title: "Head Coordinator, ENEI'25",
+    org: "Encontro Nacional de Estudantes de Informática",
+    text: "Led the organization of the national meeting of computer science students, run by NEI-ISEP, NIAEFEUP and NCGM. Four days at FEUP and ISEP in April 2025, with 500+ participants, 21 talks, 33 workshops, competitions and a job fair.",
+    links: [{ label: "Website", href: "https://www.eneiconf.pt" }],
   },
   {
     id: "blip-associate",
@@ -111,7 +130,9 @@ export const stations: Station[] = [
     title: "Looplane",
     org: "Side project",
     text: "Programming challenges for students, with per-student inputs and answers checked against reference solvers.",
-    links: [{ label: "Source", href: "https://github.com/tomasflopes/looplane" }],
+    links: [
+      { label: "Source", href: "https://github.com/tomasflopes/looplane" },
+    ],
   },
   {
     id: "progno",
@@ -132,7 +153,7 @@ export const stations: Station[] = [
     points: [
       "Backend features in Java and Scala, on Spring and Kafka.",
       "Technical planning for features that span 7 microservices.",
-      "Code reviews, deployments, and Python automation.",
+      "Code reviews, deployments and Python automation.",
     ],
     current: true,
   },
@@ -154,17 +175,15 @@ export type Project = {
   text: string;
   stack: string[];
   links: { label: string; href: string }[];
-  /** Shown instead of links, e.g. for private work in progress. */
   status?: string;
-  /** Slug of the story page for this project, if it has one. */
   story?: string;
 };
 
 export const projects: Project[] = [
   {
     name: "AntiRecurso",
-    year: "2023 – 2025",
-    text: "Exam prep platform for ISEP students, built with the student association. Multiple-choice quizzes across many subjects, used by more than 1,000 students. I also wrote the Python crawler that collected the 8,000+ questions behind it.",
+    year: "2023 - 2025",
+    text: "Exam prep platform for ISEP students. Multiple-choice quizzes across many subjects, used by more than 1,000 students. I also wrote the Python crawler that collected the 8,000+ questions behind it.",
     stack: ["TypeScript", "Python", "Docker"],
     story: "antirecurso",
     links: [
@@ -180,14 +199,20 @@ export const projects: Project[] = [
     year: "2023",
     text: "Fleet management for robots and drones moving around a university campus, built by a team of five as the integrative project of my degree's fifth semester. Domain-driven services in Node.js and .NET, a Prolog planner that sequences tasks with a genetic algorithm, and a 3D campus view in Three.js.",
     stack: ["TypeScript", "C#", "Prolog", "MongoDB", "Three.js"],
-    links: [{ label: "Source", href: "https://github.com/miseEnPlace-dev/lapr5" }],
+    story: "robdronego",
+    links: [
+      { label: "Source", href: "https://github.com/miseEnPlace-dev/lapr5" },
+    ],
   },
   {
     name: "Looplane",
     year: "2026",
     text: "Short programming challenges for students. Inputs are generated per student and answers are checked against reference solvers, so it only ever compares output text and never runs submitted code.",
     stack: ["Next.js", "PostgreSQL", "Docker"],
-    links: [{ label: "Source", href: "https://github.com/tomasflopes/looplane" }],
+    story: "looplane",
+    links: [
+      { label: "Source", href: "https://github.com/tomasflopes/looplane" },
+    ],
   },
   {
     name: "Progno",
@@ -205,29 +230,20 @@ export const projects: Project[] = [
     links: [{ label: "Source", href: "https://github.com/tomasflopes/damas" }],
   },
   {
-    name: "EA FC 24 bracket",
-    year: "2023",
-    text: "Bracket drawer for a two-day gaming tournament held at ISEP.",
-    stack: ["Next.js", "Tailwind"],
-    links: [
-      { label: "Live", href: "https://eafc-24-tournament-bracket.vercel.app" },
-      {
-        label: "Source",
-        href: "https://github.com/tomasflopes/eafc-24-tournament-bracket",
-      },
-    ],
-  },
-  {
     name: "Sampi",
     year: "2020",
-    text: "My final high school project: a mobile app for organising sports tournaments with friends, from sign-ups to results.",
+    text: "My final high school project: a mobile app for my friends' Sunday football league, to keep every match and stat.",
     stack: ["React Native", "Node.js", "MongoDB"],
+    story: "sampi",
     links: [{ label: "Source", href: "https://github.com/tomasflopes/sampi" }],
   },
 ];
 
 export const skills: { group: string; items: string[] }[] = [
-  { group: "Languages", items: ["Java", "Scala", "TypeScript", "Python", "SQL"] },
+  {
+    group: "Languages",
+    items: ["Java", "Scala", "TypeScript", "Python", "SQL"],
+  },
   { group: "Backend", items: ["Spring", "Kafka", "Node.js", "Fastify"] },
   { group: "Data", items: ["Cassandra", "PostgreSQL", "MongoDB"] },
   { group: "Frontend", items: ["React", "Next.js"] },

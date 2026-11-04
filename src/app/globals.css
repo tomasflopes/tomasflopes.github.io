@@ -5,7 +5,6 @@
   --ink-2: #4b453d;
   --muted: #857d71;
   --rule: #e6ddcf;
-  /* Orange for fills and marks; the darker ink variant keeps text contrast readable. */
   --accent: #f2600c;
   --accent-ink: #b84704;
   --accent-soft: rgba(242, 96, 12, 0.12);
@@ -84,7 +83,9 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
 
 h1,
@@ -227,7 +228,9 @@ a:hover .arrow {
   font-weight: 500;
   color: var(--ink-2);
   border-radius: 999px;
-  transition: color 0.15s ease, background-color 0.15s ease;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease;
 }
 
 .topbar nav a:hover {
@@ -246,7 +249,10 @@ a:hover .arrow {
   background: transparent;
   color: var(--ink-2);
   cursor: pointer;
-  transition: color 0.15s ease, border-color 0.15s ease, transform 0.4s ease;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.4s ease;
 }
 
 .theme-toggle:hover {
@@ -302,9 +308,35 @@ a:hover .arrow {
   display: inline-block;
 }
 
+.dot-wrap {
+  position: relative;
+  display: inline-block;
+  margin-left: 2px;
+}
+
 .dot {
   display: inline-block;
-  transform-origin: 50% 80%;
+  transform-origin: 50% 88%;
+}
+
+/* The shockwave that spreads out when the full stop lands. */
+.dot-ring {
+  position: absolute;
+  left: 50%;
+  bottom: 0.1em;
+  width: 0.2em;
+  height: 0.2em;
+  margin-left: -0.1em;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot-ring {
+    display: none;
+  }
 }
 
 .lede {
@@ -331,7 +363,10 @@ a:hover .arrow {
   border-radius: 999px;
   font-size: 14.5px;
   font-weight: 500;
-  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease,
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease,
     transform 0.15s ease;
 }
 
@@ -382,8 +417,20 @@ a:hover .arrow {
   height: 130px;
   overflow: hidden;
   pointer-events: none;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--gutter), #000 calc(100% - var(--gutter)), transparent);
-  mask-image: linear-gradient(to right, transparent, #000 var(--gutter), #000 calc(100% - var(--gutter)), transparent);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 var(--gutter),
+    #000 calc(100% - var(--gutter)),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 var(--gutter),
+    #000 calc(100% - var(--gutter)),
+    transparent
+  );
 }
 
 .ht-ballast,
@@ -403,7 +450,12 @@ a:hover .arrow {
 .ht-sleepers {
   bottom: 14px;
   height: 7px;
-  background: repeating-linear-gradient(90deg, transparent 0 4px, var(--sleeper) 4px 22px, transparent 22px 26px);
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0 4px,
+    var(--sleeper) 4px 22px,
+    transparent 22px 26px
+  );
 }
 
 .ht-rail {
@@ -416,7 +468,10 @@ a:hover .arrow {
   position: absolute;
   bottom: 26px;
   left: calc(var(--gutter) - 24px);
-  width: min(calc(var(--train-w) + 210px), calc(100% - var(--gutter) * 2 + 24px));
+  width: min(
+    calc(var(--train-w) + 210px),
+    calc(100% - var(--gutter) * 2 + 24px)
+  );
   height: 22px;
   background: var(--platform);
   border-top: 4px solid var(--accent);
@@ -464,7 +519,9 @@ a:hover .arrow {
   font-size: 14px;
   font-weight: 600;
   white-space: nowrap;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .ht-sign-board svg {
@@ -600,8 +657,20 @@ a:hover .arrow {
 .map-scroller {
   overflow-x: auto;
   overflow-y: hidden;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 7%,
+    #000 93%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 7%,
+    #000 93%,
+    transparent
+  );
   margin: 0 calc(var(--gutter) * -1);
   padding: 0 var(--gutter);
   scrollbar-width: none;
@@ -634,10 +703,6 @@ a:hover .arrow {
 
 .ballast {
   fill: var(--bed);
-}
-
-.sleepers {
-  /* painted by the pattern */
 }
 
 .sleeper {
@@ -704,7 +769,9 @@ a:hover .arrow {
 
 .sign rect {
   stroke-width: 3;
-  transition: fill 0.25s ease, stroke 0.25s ease;
+  transition:
+    fill 0.25s ease,
+    stroke 0.25s ease;
 }
 
 .stop-work .sign rect {
@@ -836,7 +903,9 @@ a:hover .arrow {
   background: var(--board-bg);
   color: var(--board-ink);
   border: 1px solid var(--board-edge, transparent);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 20px 40px -24px rgba(0, 0, 0, 0.45);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 20px 40px -24px rgba(0, 0, 0, 0.45);
 }
 
 .board-top {
@@ -980,7 +1049,10 @@ a:hover .arrow {
   background: transparent;
   color: var(--board-ink);
   cursor: pointer;
-  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
 }
 
 .board-btn:hover:not(:disabled) {
@@ -1122,7 +1194,9 @@ a:hover .arrow {
   font-size: 23px;
   line-height: 1.25;
   letter-spacing: -0.025em;
-  transition: color 0.2s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    color 0.2s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .row:hover .row-main h3 {
@@ -1230,7 +1304,9 @@ a:hover .arrow {
   background-size: 0% 4px;
   background-position: 0 100%;
   background-repeat: no-repeat;
-  transition: color 0.2s ease, background-size 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    color 0.2s ease,
+    background-size 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .contact-email:hover {
@@ -1268,7 +1344,9 @@ a:hover .arrow {
   color: var(--ink);
   cursor: pointer;
   min-width: 130px;
-  transition: border-color 0.15s ease, color 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease;
 }
 
 .copy:hover {
@@ -1299,8 +1377,20 @@ a:hover .arrow {
   --bed: color-mix(in srgb, var(--muted) 30%, var(--paper));
   --platform: color-mix(in srgb, var(--muted) 22%, var(--paper));
   margin: clamp(24px, 5vw, 48px) calc(var(--gutter) * -1) 0;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
 }
 
 .arrival svg {
@@ -1424,7 +1514,7 @@ a:hover .arrow {
   color: var(--ink-2);
 }
 
-.prose section + section {
+.prose h2:not(:first-child) {
   margin-top: clamp(40px, 6vw, 56px);
 }
 
@@ -1551,7 +1641,10 @@ a:hover .arrow {
   padding: 0 18px;
   border-radius: 999px;
   border: 1px solid var(--rule);
-  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
 
 .story-back:hover {
@@ -1615,8 +1708,6 @@ a:hover .arrow {
   margin: 20px 0 28px;
 }
 
-/* Responsive */
-
 @media (max-width: 900px) {
   :root {
     --side: 150px;
@@ -1660,7 +1751,6 @@ a:hover .arrow {
     display: none;
   }
 
-  /* Keep the map on screen while reading the board. */
   .map-scroller {
     position: sticky;
     top: 60px;

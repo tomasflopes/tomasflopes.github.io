@@ -1,0 +1,44 @@
+---
+stationId: robdronego
+title: RobDroneGo
+dek: A fleet of robots and drones moving around a university campus, built by five students in one semester.
+year: "2023"
+role: Team of five. We all worked across every area.
+stack: [TypeScript, C#, Prolog, MongoDB, Three.js]
+links:
+  - label: Source
+    href: https://github.com/miseEnPlace-dev/lapr5
+stats:
+  - value: "5"
+    label: students in the team
+  - value: 19/20
+    label: final grade on the project
+  - value: 5th
+    label: semester of my degree
+---
+
+## A campus full of robots and drones
+
+The problem statement goal was to manage a fleet of robots and drones moving around a university campus. That meant buildings with floors, elevators and passages between them, devices to register and keep track of, and tasks to hand out, like surveillance rounds or picking something up and delivering it.
+
+We built it as the integrative project of our fifth semester, in a group of five.
+
+## Four parts that had to agree
+
+The system was split into a web app with a 3D view of the campus, a service for master data (buildings, floors, elevators, devices), a service for tasks, and a planner. Each one was its own project with its own stack, and they talked to each other over HTTP.
+
+<ServicesDiagram />
+
+It was my first time working with a microservices architecture, and making the services work together was the hardest part. In a single application a lot of things are just function calls. Across services they become requests that can be slow, can fail, or can come back in a shape you didn't expect. That was all new to me.
+
+## A web server in Prolog
+
+The planner was the part I enjoyed most. It finds routes between floors, using elevators and passages, and it orders a robot's tasks with a genetic algorithm.
+
+The other services needed to reach it, so it couldn't just be a script. We had to write a real HTTP server in Prolog, with endpoints for a route and for a task sequence. Prolog isn't a language people usually write web servers in, which made it quite a feat at the end of the day.
+
+## Around the code
+
+The project also came with the things the course wanted us to care about: unit and integration tests, end-to-end tests with Cypress, and CI pipelines for each part.
+
+It was a university project, delivered at the end of the semester. What stayed with me is how different it feels to build a system out of parts instead of one application.

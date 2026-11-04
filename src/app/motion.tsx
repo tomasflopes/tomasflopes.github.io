@@ -55,6 +55,9 @@ const word: Variants = {
   show: (i: number) => ({ y: "0%", transition: { duration: 1, ease, delay: 0.1 + i * 0.09 } }),
 };
 
+/** When the full stop of the title starts to fall, in seconds. */
+const DOT_DELAY = 0.8;
+
 export function Hero({
   meta,
   lede,
@@ -83,7 +86,11 @@ export function Hero({
             <span key={m}>{m}</span>
           ))}
         </motion.p>
-        <h1 aria-label="Tomás Lopes">
+        <motion.h1
+          aria-label="Tomás Lopes"
+          animate={{ y: [0, 4, -2, 0] }}
+          transition={{ duration: 0.4, delay: DOT_DELAY + 0.4, ease: "easeOut" }}
+        >
           {["Tomás", "Lopes"].map((w, i) => (
             <span key={w} aria-hidden="true">
               {i > 0 && " "}
@@ -94,16 +101,38 @@ export function Hero({
               </span>
             </span>
           ))}
-          <motion.span
-            className="dot"
-            aria-hidden="true"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ type: "spring", stiffness: 420, damping: 14, delay: 0.75 }}
-          >
-            .
-          </motion.span>
-        </h1>
+          <span className="dot-wrap" aria-hidden="true">
+            <motion.span
+              className="dot"
+              initial={{ opacity: 0, scaleX: 9, scaleY: 9 }}
+              animate={{
+                opacity: [0, 1, 1, 1, 1],
+                y: ["0em", "0em", "0em", "-0.2em", "0em"],
+                scaleX: [9, 1, 2, 0.88, 1],
+                scaleY: [9, 1, 0.3, 1.12, 1],
+              }}
+              transition={{
+                duration: 1,
+                delay: DOT_DELAY,
+                times: [0, 0.4, 0.5, 0.74, 1],
+                ease: ["easeIn", "linear", "easeOut", "easeInOut"],
+              }}
+            >
+              .
+            </motion.span>
+            <motion.span
+              className="dot-ring"
+              initial={{ opacity: 0, scale: 0.4 }}
+              animate={{ opacity: [0, 0.7, 0], scale: [0.4, 0.5, 5] }}
+              transition={{
+                duration: 0.6,
+                delay: DOT_DELAY + 0.4,
+                times: [0, 0.05, 1],
+                ease: "easeOut",
+              }}
+            />
+          </span>
+        </motion.h1>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}

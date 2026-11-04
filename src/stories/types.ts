@@ -1,8 +1,6 @@
-import type { ComponentType } from "react";
+import type { ReactElement } from "react";
 
-export type Story = {
-  slug: string;
-  /** The station on the line this story belongs to. */
+export type StoryMeta = {
   stationId: string;
   title: string;
   dek: string;
@@ -11,5 +9,9 @@ export type Story = {
   stack: string[];
   links: { label: string; href: string }[];
   stats?: { value: string; label: string }[];
-  Body: ComponentType;
+};
+
+export type Story = StoryMeta & {
+  slug: string;
+  content: ReactElement;
 };

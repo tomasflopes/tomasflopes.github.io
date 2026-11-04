@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { stations } from "../../../content";
-import { stories, storyHref } from "../../../stories";
+import { getStories, storyHref } from "../../../stories";
 import { Arrow, SiteHeader } from "../../header";
 import { ArrivingTrain } from "../../line";
 import { MotionRoot, Reveal, ScrollProgress } from "../../motion";
 
 export const dynamicParams = false;
 
-export function generateStaticParams() {
-  return stories.map((s) => ({ slug: s.slug }));
+export async function generateStaticParams() {
+  return (await getStories()).map((s) => ({ slug: s.slug }));
 }
 
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const story = stories.find((s) => s.slug === slug);
+  const story = (await getStories()).find((s) => s.slug === slug);
   if (!story) return {};
   return {
     title: `${story.title} · Tomás Lopes`,
@@ -29,6 +29,7 @@ const kindLabel = { work: "Work", projects: "Project", both: "Work + projects" }
 
 export default async function StoryPage({ params }: Props) {
   const { slug } = await params;
+  const stories = await getStories();
   const index = stories.findIndex((s) => s.slug === slug);
   const story = stories[index];
   if (!story) notFound();
@@ -36,7 +37,6 @@ export default async function StoryPage({ params }: Props) {
   const stationIndex = stations.findIndex((s) => s.id === story.stationId);
   const station = stations[stationIndex];
   const nextStory = stories[index + 1];
-  const { Body } = story;
 
   return (
     <MotionRoot>
@@ -98,7 +98,7 @@ export default async function StoryPage({ params }: Props) {
         )}
 
         <article className="prose">
-          <Body />
+          {story.content}
         </article>
 
         <nav className="story-nav" aria-label="Story navigation">

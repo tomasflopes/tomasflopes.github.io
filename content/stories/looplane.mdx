@@ -1,0 +1,44 @@
+---
+stationId: looplane
+title: Looplane
+dek: Programming challenges for my students, borrowed from the way I spend every December.
+year: "2026"
+role: "Solo project: idea, code and the first challenges"
+stack: [Next.js, PostgreSQL, Prisma, Docker]
+links:
+  - label: Source
+    href: https://github.com/tomasflopes/looplane
+stats:
+  - value: "0"
+    label: lines of student code ever run
+  - value: "3"
+    label: challenges written so far
+  - value: "1"
+    label: input per student, per challenge
+---
+
+## Borrowed from December
+
+Every December I solve [Advent of Code](https://adventofcode.com), and lately [Everybody Codes](https://everybody.codes) too. Looplane started from how much I enjoy that format.
+
+The idea was to bring it into my classes: a set of small problems students can work on next to the course, as a complement to their regular work.
+
+## Only the answer, never the code
+
+Each student gets their own puzzle input, generated just for them. They solve it however they like, on their own machine and submit the answer as plain text. Looplane compares it with the answer from a reference solution. It never compiles or runs anything a student wrote.
+
+<CheckingDiagram />
+
+I chose that because it is safer and cheaper, and because I started the project with almost no time to design a proper sandbox for running other people's code. So I followed the approach of Advent of Code and Everybody Codes.
+
+It is worse in a way. It can't test edge cases the way a real judge would, which would matter if I used it for graded work. For extra work on top of the course, I think it's a great starting point.
+
+## Challenges live in the repo
+
+Every challenge is a folder: the problem statement, a generator for the inputs, a reference solution and a write-up of the solution. They come in themes, and I plan to keep adding more with help of student's feedback. I'm a firm believer in the idea that it is really easier to learn something if you enjoy it, so I want to make the challenges about themes that mean something to each student.
+
+Around that there is an admin side for classes, students and submissions, so I can see who has solved what.
+
+## What's next
+
+It isn't used by students yet. The plan is to put it to work this semester and challenge my students with it.

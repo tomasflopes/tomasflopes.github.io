@@ -3,9 +3,11 @@ import { Arrow, SiteHeader } from "./header";
 import { TheLine } from "./line";
 import { Hero, MotionRoot, Reveal, ScrollProgress } from "./motion";
 import { profile, projects, skills } from "../content";
-import { storyHref } from "../stories";
+import { getStories, storyHref } from "../stories";
 
-export default function Home() {
+export default async function Home() {
+  const storySlugs = Object.fromEntries((await getStories()).map((s) => [s.stationId, s.slug]));
+
   return (
     <MotionRoot>
       <ScrollProgress />
@@ -16,14 +18,12 @@ export default function Home() {
           meta={[profile.role]}
           lede={
             <p className="lede">
-              At{" "}
+              I like <span className="hl">problems</span> more than I like stacks. At{" "}
               <a href="https://www.blip.pt" className="inline">
                 Blip
               </a>{" "}
-              I&rsquo;m a backend engineer, building Java and Scala services that talk over Kafka.
-              On my own projects I go <span className="hl">fullstack</span>, from the database to
-              the UI, because I care more about solving the problem than about the stack. I also
-              teach first-year programming at ISEP.
+              I&rsquo;m a backend engineer, and on my own projects I build whatever the problem
+              needs, from the database to the screen. I also teach first-year programming at ISEP.
             </p>
           }
           links={
@@ -52,13 +52,13 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.08}>
               <h2 id="line-title" className="statement">
-                Backend is my day job. Fullstack is how I build{" "}
-                <span className="hl">everything else</span>.
+                Where I&rsquo;ve been, and what I <span className="hl">picked up</span> along the
+                way.
               </h2>
             </Reveal>
           </header>
           <Reveal delay={0.12}>
-            <TheLine />
+            <TheLine stories={storySlugs} />
           </Reveal>
         </section>
 
