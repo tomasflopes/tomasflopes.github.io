@@ -172,13 +172,32 @@ export function TheLine({ stories }: { stories: Record<string, string> }) {
             <span className="swatch swatch-both" /> Both
           </li>
         </ul>
-        <button
-          type="button"
-          className="text-button"
-          onClick={() => setListView((v) => !v)}
-        >
-          {listView ? "Back to the line" : "Show as a list"}
-        </button>
+        <div className="view-switch" role="group" aria-label="View">
+          <button
+            type="button"
+            aria-pressed={!listView}
+            onClick={() => setListView(false)}
+          >
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M1 11h14M1 13.5h14" />
+              <path d="M3 11V8h4v3M9 11V6h4v5" />
+            </svg>
+            Map
+          </button>
+          <button
+            type="button"
+            aria-pressed={listView}
+            onClick={() => setListView(true)}
+          >
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M5.5 4h9M5.5 8h9M5.5 12h9" />
+              <circle cx="2" cy="4" r="0.6" />
+              <circle cx="2" cy="8" r="0.6" />
+              <circle cx="2" cy="12" r="0.6" />
+            </svg>
+            List
+          </button>
+        </div>
       </div>
 
       {listView ? (
