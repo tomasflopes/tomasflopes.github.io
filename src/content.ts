@@ -156,6 +156,8 @@ export type Project = {
   links: { label: string; href: string }[];
   /** Shown instead of links, e.g. for private work in progress. */
   status?: string;
+  /** Slug of the story page for this project, if it has one. */
+  story?: string;
 };
 
 export const projects: Project[] = [
@@ -164,6 +166,7 @@ export const projects: Project[] = [
     year: "2023 – 2025",
     text: "Exam prep platform for ISEP students, built with the student association. Multiple-choice quizzes across many subjects, used by more than 1,000 students. I also wrote the Python crawler that collected the 8,000+ questions behind it.",
     stack: ["TypeScript", "Python", "Docker"],
+    story: "antirecurso",
     links: [
       { label: "Live", href: "https://antirecurso.nei-isep.org" },
       {

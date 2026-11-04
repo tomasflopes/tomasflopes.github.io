@@ -13,6 +13,7 @@ import {
 } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { stations } from "../content";
+import { storyFor, storyHref } from "../stories";
 
 // Side-view railway, in SVG units drawn at 1:1. The map is a long panorama
 // that pans to follow the train.
@@ -353,9 +354,14 @@ export function TheLine() {
                     ))}
                   </ul>
                 )}
-                {shown.links && (
+                {(shown.links || storyFor(shown.id)) && (
                   <p className="board-links">
-                    {shown.links.map((l) => (
+                    {storyFor(shown.id) && (
+                      <a className="board-story" href={storyHref(storyFor(shown.id)!.slug)}>
+                        Read the story →
+                      </a>
+                    )}
+                    {shown.links?.map((l) => (
                       <a key={l.href} href={l.href}>
                         {l.label} ↗
                       </a>
@@ -427,6 +433,62 @@ function Train({ wheelTurn }: { wheelTurn: MotionValue<number> }) {
         </motion.g>
       ))}
     </g>
+  );
+}
+
+/** A short stretch of track where the train pulls in to a station: the intro of a story page. */
+export function ArrivingTrain({ name, kind }: { name: string; kind: "work" | "projects" | "both" }) {
+  const VW = 1000;
+  const RAIL = 96;
+  const STOP = 640;
+  const progress = useMotionValue(0);
+  const x = useTransform(progress, (p) => -260 + p * (STOP + 260));
+  const wheelTurn = useTransform(x, (v) => (v / WHEEL_R) * (180 / Math.PI));
+  const [running, setRunning] = useState(true);
+  const sw = signWidth(name);
+
+  useEffect(() => {
+    const c = animate(progress, 1, {
+      duration: prefersReducedMotion() ? 0 : 2.2,
+      ease: [0.16, 1, 0.3, 1],
+      delay: 0.2,
+      onComplete: () => setRunning(false),
+    });
+    return () => c.stop();
+  }, [progress]);
+
+  return (
+    <div className="arrival" aria-hidden="true">
+      <svg viewBox={`0 0 ${VW} 130`} preserveAspectRatio="xMidYMax slice">
+        <defs>
+          <pattern id="arrival-sleepers" width={26} height={7} patternUnits="userSpaceOnUse">
+            <rect className="sleeper" x={4} y={0} width={18} height={7} rx={1} />
+          </pattern>
+        </defs>
+        <path className="ballast" d={`M0 ${RAIL + 11} H${VW} V${RAIL + 26} H0 Z`} />
+        <rect x={0} y={RAIL + 5} width={VW} height={7} fill="url(#arrival-sleepers)" />
+        <rect className="rail" x={0} y={RAIL} width={VW} height={5} />
+        <g className={`stop stop-${kind} is-here is-reached`}>
+          <rect className="platform" x={STOP - 120} y={RAIL - 24} width={240} height={24} />
+          <rect className="platform-edge" x={STOP - 120} y={RAIL - 24} width={240} height={4} />
+          <line className="sign-post" x1={STOP + 104} x2={STOP + 104} y1={44} y2={RAIL - 24} />
+          <line className="sign-post" x1={STOP + 156} x2={STOP + 156} y1={44} y2={RAIL - 24} />
+          <g className="sign">
+            <rect x={STOP + 130 - sw / 2} y={16} width={sw} height={30} rx={5} />
+            <text x={STOP + 130} y={36} textAnchor="middle">
+              {name}
+            </text>
+          </g>
+        </g>
+        <motion.g style={{ x }}>
+          <g transform={`translate(0 ${RAIL})`}>
+            <g className={running ? "train is-running" : "train"}>
+              <Train wheelTurn={wheelTurn} />
+            </g>
+          </g>
+        </motion.g>
+      </svg>
+    </div>
   );
 }
 

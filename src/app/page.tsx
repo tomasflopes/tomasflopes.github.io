@@ -1,45 +1,17 @@
-import { CopyEmail, ThemeToggle } from "./client";
+import { CopyEmail } from "./client";
+import { Arrow, SiteHeader } from "./header";
 import { TheLine } from "./line";
 import { Hero, MotionRoot, Reveal, ScrollProgress } from "./motion";
 import { profile, projects, skills } from "../content";
-
-const nav = [
-  { href: "#line", label: "The line" },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
-];
-
-function Arrow() {
-  return (
-    <svg className="arrow" viewBox="0 0 12 12" width="11" height="11" aria-hidden="true">
-      <path d="M3 9 9 3M4.5 3H9v4.5" fill="none" stroke="currentColor" strokeWidth="1.4" />
-    </svg>
-  );
-}
+import { storyHref } from "../stories";
 
 export default function Home() {
   return (
     <MotionRoot>
       <ScrollProgress />
-      <header className="topbar">
-        <div className="wrap topbar-inner">
-          <a href="#top" className="mark">
-            Tomás Lopes<span className="mark-dot">.</span>
-          </a>
-          <nav aria-label="Sections">
-            <ul>
-              {nav.map((item) => (
-                <li key={item.href}>
-                  <a href={item.href}>{item.label}</a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <ThemeToggle />
-        </div>
-      </header>
+      <SiteHeader />
 
-      <main id="top" className="wrap">
+      <main className="wrap">
         <Hero
           meta={[profile.role]}
           lede={
@@ -107,6 +79,11 @@ export default function Home() {
                     <p className="stack">{project.stack.join(" · ")}</p>
                   </div>
                   <div className="row-links">
+                    {project.story && (
+                      <a href={storyHref(project.story)} className="story-link">
+                        Read the story <Arrow />
+                      </a>
+                    )}
                     {project.status && <span className="status">{project.status}</span>}
                     {project.links.map((link) => (
                       <a key={link.href} href={link.href}>
