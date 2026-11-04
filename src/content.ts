@@ -1,6 +1,6 @@
 export const profile = {
   name: "Tomás Lopes",
-  role: "Backend at work, fullstack by choice",
+  role: "Software engineer · Porto",
   email: "tomaslopes.dev@gmail.com",
   github: "https://github.com/tomasflopes",
   linkedin: "https://www.linkedin.com/in/tomasflopes/",

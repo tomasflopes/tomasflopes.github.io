@@ -9,6 +9,7 @@ import {
   type Variants,
 } from "motion/react";
 import { useRef } from "react";
+import { HeroTrack } from "./hero-track";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -137,16 +138,7 @@ export function Hero({
         />
       </motion.figure>
 
-      <motion.a
-        href="#line"
-        className="scroll-cue"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.3 }}
-      >
-        <span className="scroll-cue-line" aria-hidden="true" />
-        Ride the line
-      </motion.a>
+      <HeroTrack />
     </section>
   );
 }

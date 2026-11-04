@@ -133,8 +133,7 @@ a {
 .meta,
 .stack,
 .milestone-meta,
-.colophon,
-.scroll-cue {
+.colophon {
   font-family: var(--mono);
   font-size: 12.5px;
   letter-spacing: 0.02em;
@@ -265,7 +264,7 @@ a:hover .arrow {
   gap: clamp(32px, 6vw, 80px);
   align-items: center;
   min-height: calc(100svh - 60px);
-  padding: clamp(48px, 8vw, 96px) 0 clamp(96px, 12vw, 140px);
+  padding: clamp(48px, 8vw, 96px) 0 170px;
 }
 
 .meta {
@@ -370,46 +369,137 @@ a:hover .arrow {
   object-position: 50% 20%;
 }
 
-.scroll-cue {
+.hero-track {
+  --rail: color-mix(in srgb, var(--ink) 72%, var(--paper));
+  --sleeper: color-mix(in srgb, #8a5a36 70%, var(--paper));
+  --bed: color-mix(in srgb, var(--muted) 30%, var(--paper));
+  --platform: color-mix(in srgb, var(--muted) 22%, var(--paper));
+  --train-w: clamp(150px, 18vw, 205px);
+  position: absolute;
+  left: calc(var(--gutter) * -1);
+  right: calc(var(--gutter) * -1);
+  bottom: 0;
+  height: 130px;
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--gutter), #000 calc(100% - var(--gutter)), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 var(--gutter), #000 calc(100% - var(--gutter)), transparent);
+}
+
+.ht-ballast,
+.ht-sleepers,
+.ht-rail {
   position: absolute;
   left: 0;
-  bottom: 32px;
+  right: 0;
+}
+
+.ht-ballast {
+  bottom: 0;
+  height: 15px;
+  background: var(--bed);
+}
+
+.ht-sleepers {
+  bottom: 14px;
+  height: 7px;
+  background: repeating-linear-gradient(90deg, transparent 0 4px, var(--sleeper) 4px 22px, transparent 22px 26px);
+}
+
+.ht-rail {
+  bottom: 21px;
+  height: 5px;
+  background: var(--rail);
+}
+
+.ht-platform {
+  position: absolute;
+  bottom: 26px;
+  left: calc(var(--gutter) - 24px);
+  width: min(calc(var(--train-w) + 210px), calc(100% - var(--gutter) * 2 + 24px));
+  height: 22px;
+  background: var(--platform);
+  border-top: 4px solid var(--accent);
+}
+
+.ht-train {
+  position: absolute;
+  left: var(--gutter);
+  bottom: 26px;
+  z-index: 2;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.ht-train-inner {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ht-train svg {
+  display: block;
+  width: var(--train-w);
+  height: auto;
+  overflow: visible;
+}
+
+.ht-sign {
+  position: absolute;
+  left: calc(var(--gutter) + var(--train-w) + 40px);
+  bottom: 52px;
+  z-index: 2;
+  padding-bottom: 38px;
+  pointer-events: auto;
+}
+
+.ht-sign-board {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  color: var(--muted);
-  transition: color 0.15s ease;
+  gap: 8px;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 6px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.scroll-cue:hover {
-  color: var(--accent-ink);
+.ht-sign-board svg {
+  transition: transform 0.25s ease;
 }
 
-.scroll-cue-line {
-  position: relative;
-  width: 2px;
-  height: 40px;
-  border-radius: 2px;
-  background: var(--rule);
-  overflow: hidden;
-}
-
-.scroll-cue-line::after {
-  content: "";
+.ht-post {
   position: absolute;
-  inset: 0;
-  background: var(--accent);
-  animation: cue 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  bottom: 0;
+  width: 3px;
+  height: 38px;
+  background: var(--muted);
 }
 
-@keyframes cue {
-  0% {
-    transform: translateY(-100%);
-  }
-  60%,
-  100% {
-    transform: translateY(100%);
-  }
+.ht-post-l {
+  left: 22%;
+}
+
+.ht-post-r {
+  right: 22%;
+}
+
+.ht-sign:hover .ht-sign-board,
+.ht-sign:focus-visible .ht-sign-board {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.ht-sign:hover .ht-sign-board svg {
+  transform: translateX(3px);
+}
+
+.hero-track:has(.ht-sign:hover) .ht-train-inner,
+.ht-train:hover .ht-train-inner {
+  transform: translateX(8px);
 }
 
 /* The line */
@@ -1542,7 +1632,7 @@ a:hover .arrow {
     grid-template-columns: minmax(0, 1fr);
     align-items: start;
     min-height: 0;
-    padding-bottom: 120px;
+    padding-bottom: 180px;
   }
 
   .portrait {

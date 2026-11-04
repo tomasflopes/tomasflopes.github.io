@@ -25,7 +25,7 @@ const H = 270;
 const VIEW_Y = 74;
 const RAIL_Y = 196;
 const PLATFORM_W = 132;
-const WHEEL_R = 6;
+export const WHEEL_R = 6;
 
 const xAt = (v: number) => PAD_X + v * STEP;
 
@@ -400,7 +400,7 @@ export function TheLine() {
 }
 
 /** Side view of a two-car electric train, facing right, wheels resting on y = 0. */
-function Train({ wheelTurn }: { wheelTurn: MotionValue<number> }) {
+export function Train({ wheelTurn }: { wheelTurn: MotionValue<number> }) {
   const wheels = [-84, -68, -30, -14, 14, 30, 66, 82];
   return (
     <g className="train-shape">
